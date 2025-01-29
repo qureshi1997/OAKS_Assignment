@@ -1,0 +1,39 @@
+// Filename - app.js
+
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://localhost:27017/magesDB");
+
+const mageSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        require: true
+    },
+    price: Number,
+    category: String,
+    inStock: {
+        type: Boolean,
+        require: true
+    }
+})
+
+const Mage = new mongoose.model("Mage", mageSchema)
+
+const mage_1 = new Mage({
+    name: "Takashi",
+    power_type: 'Element',
+    mana_power: 200,
+    health: 1000,
+    gold: 10000
+});
+
+mage_1.save();
+
+const mage_2 = new Mage({
+    name: "Steve",
+    power_type: 'Physical',
+    mana_power: "500",
+    health: "5000",
+    gold: "50"
+})
+
+mage_2.save();
