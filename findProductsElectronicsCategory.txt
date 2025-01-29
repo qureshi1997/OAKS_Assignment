@@ -1,0 +1,6 @@
+SELECT * 
+FROM table_name
+WHERE 
+    category LIKE "Electronics" AND
+    price > 500
+SORT BY price DESC
